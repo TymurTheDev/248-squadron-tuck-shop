@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101d30">
+  <meta name="description" content="248 Squadron tuck shop stock and availability.">
+  <title>248 Squadron | Tuck Shop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="config.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <div class="topline"><span class="topline-dot"></span> 248 SQUADRON STORES SYSTEM <span class="topline-separator">/</span> TUCK SHOP INVENTORY</div>
+  <header class="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-radar"><span></span></div>
+    <div class="hero-inner">
+      <div class="brand-row">
+        <div class="roundel" aria-label="Decorative aviation roundel"><i></i></div>
+        <div class="brand-copy"><div class="eyebrow">ROYAL AIR FORCE AIR CADETS</div><div class="squadron-name">248 <span>SQUADRON</span></div><div class="brand-sub">SERVICE • DISCIPLINE • EXCELLENCE</div></div>
+        <div class="hero-status"><span class="status-light"></span><span id="systemStatus">CONNECTING</span></div>
+      </div>
+      <div class="hero-main">
+        <div class="hero-copy">
+          <div class="section-kicker"><span></span> SQUADRON STORES</div>
+          <h1>READY<br><em>FOR SERVICE.</em></h1>
+          <p>Check current tuck shop availability, prices and stock before your next parade night.</p>
+          <a class="scroll-link" href="#inventory">VIEW INVENTORY <span>↓</span></a>
+        </div>
+        <div class="aircraft-stage" aria-hidden="true">
+          <div class="aircraft-label label-top">248 / FLIGHT LINE</div>
+          <svg class="jet" viewBox="0 0 760 300" role="img" aria-label="Stylised military jet silhouette">
+            <defs><linearGradient id="jetMetal" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#f4f7fa"/><stop offset=".48" stop-color="#aebdca"/><stop offset="1" stop-color="#63778d"/></linearGradient></defs>
+            <path fill="url(#jetMetal)" d="M47 151 303 133 398 22 447 18 424 130 540 123 626 72 650 75 616 131 709 145 727 155 709 166 616 179 650 235 626 238 540 187 424 180 447 292 398 288 303 167 47 151Z"/>
+            <path fill="#72869b" d="m322 143 84-101 17-2-28 103 114-5 71-42-31 47-116 13-111-13Z" opacity=".65"/>
+            <path fill="#314b68" d="m106 148 225-10 17 14-17 14-225-10Z" opacity=".9"/>
+            <path fill="#dce5ec" d="m398 22 49-4-23 112-27 5 19-103Z" opacity=".65"/>
+            <path fill="#dce5ec" d="m398 288 49 4-23-112-27-5 19 103Z" opacity=".65"/>
+            <path fill="#314b68" d="m505 146 122-3 44 12-44 12-122-3Z"/>
+            <circle cx="383" cy="150" r="8" fill="#dbe5ed"/>
+          </svg>
+          <div class="aircraft-label label-bottom">AIR CADETS <span>·</span> 248 SQN</div>
+          <div class="flight-line"></div>
+        </div>
+      </div>
+      <div class="hero-foot"><span>INVENTORY CONTROL</span><span>PUBLIC STOCK VIEW</span><span id="lastUpdated">LAST UPDATE —</span></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="stats-wrap" aria-label="Stock summary">
+      <div class="stat-card"><span class="stat-icon">01</span><div><small>PRODUCT LINES</small><strong id="totalProducts">—</strong></div></div>
+      <div class="stat-card"><span class="stat-icon">02</span><div><small>AVAILABLE</small><strong id="availableProducts">—</strong></div></div>
+      <div class="stat-card"><span class="stat-icon stat-alert">03</span><div><small>OUT OF STOCK</small><strong id="unavailableProducts">—</strong></div></div>
+      <div class="stat-card"><span class="stat-icon">04</span><div><small>LOW STOCK</small><strong id="lowProducts">—</strong></div></div>
+    </section>
+
+    <section class="inventory-section" id="inventory">
+      <div class="section-heading">
+        <div><div class="section-kicker dark-kicker"><span></span> STORES CATALOGUE</div><h2>THE INVENTORY<span>.</span></h2><p>Prices are shown whether an item is available or not.</p></div>
+        <div class="inventory-tools"><label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Search stores..." aria-label="Search products"></label><select id="categoryFilter" aria-label="Filter by category"><option value="all">ALL CATEGORIES</option></select></div>
+      </div>
+      <div class="inventory-meta"><span><i class="live-pulse"></i> LIVE STOCK VIEW</span><span id="productCountLabel">0 ITEMS LISTED</span></div>
+      <div id="productGrid" class="product-grid"><div class="loading-card"><div class="loader"></div><span>ESTABLISHING INVENTORY LINK</span></div></div>
+      <div id="emptyState" class="empty-state hidden"><div class="empty-mark">248</div><h3>NO ITEMS FOUND</h3><p>Try another search or category.</p></div>
+    </section>
+
+    <section class="admin-strip">
+      <div class="admin-strip-mark">248</div><div><div class="section-kicker"><span></span> STAFF ACCESS</div><h2>STORES MANAGEMENT</h2><p>Authorised staff can maintain products, prices and stock levels.</p></div><button class="button button-outline" id="openAdmin">STAFF ACCESS <span>↗</span></button>
+    </section>
+  </main>
+
+  <footer><div class="footer-brand"><div class="roundel small-roundel"><i></i></div><div><strong>248 SQUADRON</strong><small>STORES MANAGEMENT SYSTEM</small></div></div><div class="footer-note">INDEPENDENT SQUADRON PROJECT <span>·</span> NOT AN OFFICIAL RAF WEBSITE</div><div class="footer-code">248 / SQN</div></footer>
+
+  <div class="modal-backdrop hidden" id="loginModal" role="dialog" aria-modal="true" aria-labelledby="loginTitle"><div class="modal login-modal"><button class="modal-close" data-close="loginModal" aria-label="Close">×</button><div class="modal-kicker">RESTRICTED ACCESS / STAFF ONLY</div><div class="modal-emblem">248</div><h2 id="loginTitle">STAFF<br>AUTHENTICATION</h2><p>Enter the squadron administrator code to continue.</p><form id="loginForm"><label>ADMINISTRATOR CODE<input id="adminCode" type="password" autocomplete="current-password" required placeholder="Enter secure code"></label><button class="button button-primary full-button" type="submit">AUTHORISE ACCESS <span>→</span></button><div id="loginMessage" class="form-message" aria-live="polite"></div></form></div></div>
+
+  <div class="modal-backdrop hidden" id="adminModal" role="dialog" aria-modal="true" aria-labelledby="adminTitle"><div class="modal admin-modal"><div class="admin-header"><div><div class="modal-kicker">248 SQUADRON / RESTRICTED</div><h2 id="adminTitle">STORES CONTROL</h2></div><button class="modal-close" data-close="adminModal" aria-label="Close">×</button></div><nav class="admin-tabs"><button class="admin-tab active" data-tab="products">INVENTORY</button><button class="admin-tab" data-tab="configuration">CONFIGURATION</button><button class="admin-tab" data-tab="history">HISTORY</button></nav>
+    <section class="admin-panel active" id="panel-products"><div class="panel-heading"><div><h3>PRODUCT MANAGEMENT</h3><p>Add items or update stock and pricing.</p></div><button class="button button-primary" id="newProduct">+ NEW ITEM</button></div><form id="productForm" class="product-form hidden"><input type="hidden" id="editId"><div class="form-grid"><label>PRODUCT NAME<input id="productName" required maxlength="100" placeholder="e.g. Chocolate bar"></label><label>CATEGORY<input id="productCategory" maxlength="60" placeholder="Snacks"></label><label>PRICE (£)<input id="productPrice" type="number" min="0" step="0.01" required placeholder="1.00"></label><label>QUANTITY<input id="productQuantity" type="number" min="0" step="1" required placeholder="12"></label><label>LOW STOCK ALERT AT<input id="productThreshold" type="number" min="0" step="1" value="3"></label><label>SUMUP ITEM NAME<input id="productSumupName" placeholder="Exact name on SumUp sale"></label><label class="wide-field">IMAGE URL (OPTIONAL)<input id="productImage" type="url" placeholder="https://..."></label><label class="wide-field">DESCRIPTION<input id="productDescription" maxlength="300" placeholder="Short product description"></label></div><div class="form-actions"><button class="button button-primary" type="submit">SAVE PRODUCT</button><button class="button button-muted" type="button" id="cancelProduct">CANCEL</button></div><div id="productMessage" class="form-message"></div></form><div id="adminProductList" class="admin-product-list"><div class="loader"></div></div></section>
+    <section class="admin-panel" id="panel-configuration"><div class="panel-heading"><div><h3>INTEGRATION SETTINGS</h3><p>SumUp is optional. Manual stock control remains available.</p></div><span class="integration-indicator" id="sumupBadge">NOT CONNECTED</span></div><div class="config-card"><div class="config-card-title"><div class="config-symbol">S</div><div><strong>SUMUP API CONNECTION</strong><small>SECURE SERVER-SIDE CREDENTIAL STORAGE</small></div></div><p class="config-explainer">An authorised merchant-account holder can connect the squadron's SumUp account. The secret key is encrypted by the backend and is never returned to this page.</p><form id="sumupForm"><label>MERCHANT CODE<input id="merchantCode" autocomplete="off" placeholder="e.g. MCZM9TGQ" required></label><label>SECRET API KEY<input id="sumupApiKey" type="password" autocomplete="new-password" placeholder="Paste SumUp secret API key" required></label><button class="button button-primary full-button" type="submit">TEST & SAVE CONNECTION <span>→</span></button><div id="sumupMessage" class="form-message"></div></form><div class="config-actions"><button class="button button-muted" id="syncNow">SYNC SALES NOW</button><button class="button button-danger" id="disconnectSumup">DISCONNECT</button></div><div class="sync-note" id="syncNote">Automatic sync checks for new closed sales every five minutes after connection.</div></div><div class="security-note"><strong>SECURITY NOTE</strong><p>Never place SumUp keys in GitHub files, screenshots or messages. Only connect an account with permission from the squadron's authorised merchant-account holder.</p></div></section>
+    <section class="admin-panel" id="panel-history"><div class="panel-heading"><div><h3>ACTIVITY LOG</h3><p>Recent stock changes and SumUp sales.</p></div></div><div id="historyList" class="history-list"><div class="loader"></div></div></section>
+    <div class="admin-bottom"><span>SECURE STAFF SESSION</span><button id="logoutButton" class="text-button">SIGN OUT ↗</button></div>
+  </div></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
